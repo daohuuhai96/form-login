@@ -49,11 +49,21 @@
         // Mong muốn của chúng ta
         validator({
             form: '#form-1',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
             rules: [
                 validator.isRequired('#fullname'),
                 validator.isEmail('#email'),
-
-            ]
+                validator.minLength('#password', 6),
+                validator.isRequired('#password_confirmation'),
+                validator.isConfirmed('#password_confirmation', function() {
+                    return document.querySelector('#form-1 #password').value;
+                }, 'mat khau nhap vao khong chinh xac')
+            ],
+            onSubmit: function(data) {
+                //call API
+                console.log(data);
+            }
         });
     </script>
 </body>
