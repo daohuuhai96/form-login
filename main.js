@@ -104,7 +104,7 @@ validator.isRequired = function(selector) {
     return {
         selector: selector,
         test: function(value) {
-            return value.trim() ? undefined : "vui long nhap truong nay"
+            return value.trim() ? undefined : "Vui lòng nhập trường này"
         }
     };
 }
@@ -114,7 +114,7 @@ validator.isEmail = function(selector) {
         selector: selector,
         test: function(value) {
             var regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-            return regex.test(value) ? undefined : 'truong nay phai la email'
+            return regex.test(value) ? undefined : 'Trường này phải là email'
         }
     };
 }
@@ -123,7 +123,7 @@ validator.minLength = function(selector, min) {
     return {
         selector: selector,
         test: function(value) {
-            return value.length >= min ? undefined : `vui long nhap toi thieu ${min} ky tu`;
+            return value.length >= min ? undefined : `Vui lòng nhập tối thiểu ${min} ký tự`;
         }
     };
 }
@@ -132,7 +132,7 @@ validator.isConfirmed = function(selector, getConfirmValue, message) {
     return {
         selector: selector,
         test: function(value) {
-            return value === getConfirmValue() ? undefined : message || 'gia tri nhap vao khong chinh sac';
+            return value === getConfirmValue() ? undefined : message || 'Giá trị nhập vào không chính xác';
         }
     };
 }

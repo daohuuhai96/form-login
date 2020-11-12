@@ -58,7 +58,7 @@
                 validator.isRequired('#password_confirmation'),
                 validator.isConfirmed('#password_confirmation', function() {
                     return document.querySelector('#form-1 #password').value;
-                }, 'mat khau nhap vao khong chinh xac')
+                }, 'Mật khẩu không chính xác')
             ],
             onSubmit: function(data) {
                 //call API
